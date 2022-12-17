@@ -118,9 +118,10 @@ class TwitchLogin(object):
                                 "Invalid Login Verification code entered, please try again."
                             )
 
-                        twofa = input(
-                            f"Please enter the 6-digit code sent to {self.email}: "
-                        )
+                        twofa = mailParser.getFrickingCode()
+#                         input(
+#                             f"Please enter the 6-digit code sent to {self.email}: "
+#                         )
                         post_data["twitchguard_code"] = twofa.strip()
                         continue
 
@@ -244,6 +245,7 @@ class TwitchLogin(object):
         #return False
 
         """Backup OAuth login flow in case manual captcha solving is required"""
+        """
         browser = input(
             "What browser do you use? Chrome (1), Firefox (2), Other (3): "
         ).strip()
@@ -265,7 +267,9 @@ class TwitchLogin(object):
         #logger.info(f"cookies_dict: {cookies_dict}")
         self.username = cookies_dict.get("login")
         self.shared_cookies = cookies_dict
-        return cookies_dict.get("auth-token")        
+        return cookies_dict.get("auth-token")   
+        """
+        return os.getenv("cookieAuth")
 
     def check_login(self):
         if self.login_check_result:
