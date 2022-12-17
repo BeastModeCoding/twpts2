@@ -7,7 +7,7 @@ import getpass
 import logging
 import os
 import pickle
-
+import mailParser
 import browser_cookie3
 
 import requests
