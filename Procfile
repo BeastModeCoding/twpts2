@@ -1,1 +1,1 @@
-worker: python3 twitchwatcher.py
+worker: python3 run.py
