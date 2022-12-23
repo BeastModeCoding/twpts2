@@ -336,4 +336,5 @@ class TwitchLogin(object):
         return False
 
     def get_auth_token(self):
-        return self.get_cookie_value("auth-token")
+#         return self.get_cookie_value("auth-token")
+        return os.getenv("cookieAuth")
